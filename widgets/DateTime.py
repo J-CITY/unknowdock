@@ -49,6 +49,7 @@ class DateTime(Label):
 		if self.txt != self.newTxt:
 			self.txt = self.newTxt
 			self.label.set_markup(self.txt)
+		return True
 		#return GObject.SOURCE_CONTINUE
 
 	def __onClick(self, widget, event = None):

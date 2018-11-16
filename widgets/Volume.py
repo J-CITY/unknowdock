@@ -54,6 +54,7 @@ class Volume(Label):
 		if self.txt != self.newTxt:
 			self.txt = self.newTxt
 			self.label.set_markup(self.txt)
+		return True
 
 	def __onClick(self, widget, event = None):
 		if event.button == 1:

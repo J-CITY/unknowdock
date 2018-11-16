@@ -54,3 +54,4 @@ class WeatherLabel(Label):
 		if self.text != self.newText:
 			self.text = self.newText
 			self.SetText()
+		return True

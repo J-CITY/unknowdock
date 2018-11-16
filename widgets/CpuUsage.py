@@ -44,6 +44,7 @@ class CpuUsage(Label):
 		if self.text != self.newText:
 			self.text = self.newText
 			self.SetText()
+		return True
 	def SetText(self):
 		txt = '<span font="%s">%s</span>' % (str(self.fontSize), self.text)
 		self.label.set_markup(txt)

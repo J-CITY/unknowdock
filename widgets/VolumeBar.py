@@ -55,7 +55,7 @@ class VolumeBar(ProgressBar):
 			cmd = "pactl -- set-sink-volume 0 " + str(self.newPercent) + "%"
 			_ = subprocess.run(cmd, stdout=subprocess.PIPE, shell=True)
 		super().Update()
-
+		return True
 
 
 

@@ -25,7 +25,7 @@ import threading
 
 class VolumeImage(Image):
 	def __init__(self, delay=1):
-		super().__init__("/home/daniil/mopag-master/widgets/icons/vol.png")
+		super().__init__("/home/daniil/unknowdock/widgets/icons/vol.png")
 		self.set_events(Gdk.EventMask.SCROLL_MASK|Gdk.EventMask.BUTTON_PRESS_MASK)
 		self.connect('button-press-event', self.__onClick)
 		self.connect('scroll-event', self.__onScroll)
@@ -50,13 +50,13 @@ class VolumeImage(Image):
 	def Update(self):
 		if self.output < 50:
 			if self.volType != 0:
-				self.image.set_from_file("/home/daniil/mopag-master/widgets/icons/vol_low.png")
+				self.image.set_from_file("/home/daniil/unknowdock/widgets/icons/vol_low.png")
 				self.volType=0
 		else:
 			if self.volType!=1:
-				self.image.set_from_file("/home/daniil/mopag-master/widgets/icons/vol.png")
+				self.image.set_from_file("/home/daniil/unknowdock/widgets/icons/vol.png")
 				self.volType=1
-		
+		return True
 
 	def __onClick(self, widget, event = None):
 		if event.button == 1:

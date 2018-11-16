@@ -133,7 +133,7 @@ class DockWindow(Gtk.Window):
 
 
 	def Update(self):
-		while True:
+		#while True:
 			for w in left:
 				GObject.timeout_add(50, w.Update)
 				#w.Update()

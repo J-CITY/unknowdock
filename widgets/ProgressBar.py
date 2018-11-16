@@ -51,7 +51,8 @@ class ProgressBar(Label):
 			txt = '<span font="%s">%s</span>' % (str(self.fontSize), bar)
 			self.label.set_markup(txt)
 			self.percent = self.newPercent
-
+		return True
+		
 	def __onClick(self, widget, event = None):
 		if event.button == 1:
 			print("l")
