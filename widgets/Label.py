@@ -13,6 +13,7 @@ class Label(Gtk.EventBox):
 
 	def __init__(self, bgColor='#ffffff', fgColor='#000000', fontSize=10, font="", decoratePos="DOWN", decoreateImg=""):
 		super().__init__()
+		self.type = "LABEL"
 		self.fontSize = fontSize
 		txt  = '<span font="%s"></span>' % (str(self.fontSize))
 		self.label = Gtk.Label(txt)

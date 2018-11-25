@@ -13,6 +13,7 @@ class Image(Gtk.EventBox):
 
 	def __init__(self, bgColor="#ffffff", path="v.png", decoratePos="DOWN", decoreateImg=""):
 		super().__init__()
+		self.type = "IMAGE"
 		self.bgColor = bgColor
 
 		self.image = Gtk.Image()

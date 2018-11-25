@@ -8,6 +8,7 @@ from widgets.ProgressBar import *
 from widgets.Text import *
 from widgets.Image import Image
 from widgets.Label import Label
+from widgets.Desktop import Desktop, Desktops, Mode
 from enum import Enum
 
 class Position(Enum):
@@ -47,11 +48,16 @@ COLOR_06="#85678F"           # magenta
 COLOR_07="#5E8D87"           # cayn
 COLOR_08="#969896"           # white
 
-
+PIPE_WM_INFO = "/home/daniil/wminfo"
+PIPE_DOCK_INFO = "/home/daniil/dockinfo"
 
 left = [
+	Desktops(pwmi=PIPE_WM_INFO, pdi=PIPE_DOCK_INFO, text=["一", "二", "三", "四"],
+		bgColor='#4B3B51', fgColor='#ffffff', 
+		bgColorActive='#4B3B51', fgColorActive='#D0785D'),
 	Text(bgColor="#4B3B51", fgColor="#ffffff", text=" User: "),
 	UserName(bgColor="#4B3B51", fgColor="#ffffff"), 
+	Mode(pwmi=PIPE_WM_INFO, pdi=PIPE_DOCK_INFO, bgColor="#4B3B51", fgColor="#ffffff"),
 	#ProgressBar()
 	#Text(bgColor=COLOR_01, fgColor=COLOR_02, text=" | "),
 	#Text(text="2 label")
@@ -61,16 +67,18 @@ centr = [
 	#Text(text="3 label")
 ]
 right = [
-	Image(bgColor="#ffffff", path="/home/daniil/mopag-master/widgets/icons/arr5.png"),
-	Image(bgColor="#CB755B", path="/home/daniil/mopag-master/widgets/icons/cpu.png"),
+	Image(bgColor="#ffffff", 
+		path="/home/daniil/unknowdock/widgets/icons/arr5.png"),
+	Image(bgColor="#CB755B", 
+		path="/home/daniil/unknowdock/widgets/icons/cpu.png"),
 	CpuUsage(fmt='%s %% ', percpu=True, bgColor="#D0785D", fgColor="#ffffff"), 
-	Image(path="/home/daniil/mopag-master/widgets/icons/arr4.png"),
+	Image(path="/home/daniil/unknowdock/widgets/icons/arr4.png"),
 	VolumeImage(), 
 	Volume(bgColor="#92B0A0", fgColor="#ffffff"),
 	Text(text=" % ", bgColor="#92B0A0", fgColor="#ffffff"),
-	Image(path="/home/daniil/mopag-master/widgets/icons/arr3.png"),
+	Image(path="/home/daniil/unknowdock/widgets/icons/arr3.png"),
 	WeatherLabel(bgColor="#C0C0A2", fgColor="#ffffff"),
-	Image(path="/home/daniil/mopag-master/widgets/icons/arr2.png"),
+	Image(path="/home/daniil/unknowdock/widgets/icons/arr2.png"),
 	DateTime(fmt="%Y-%m-%d %H:%M:%S", bgColor="#777E76", fgColor="#ffffff"), 
 	Text(bgColor="#777E76", fgColor="#ffffff", text=" "),
 ]

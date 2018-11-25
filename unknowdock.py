@@ -11,12 +11,12 @@ import cairo
 
 from config import *
 
-
 class DockWindow(Gtk.Window):
 
 	def __init__(self, left=[], centr=[], right=[]):
 		Gtk.Window.__init__(self, title="UnknownDock", decorated=True, name="DockWindow")
 		
+		#self.desks = Desktops(text=["一", "二", "三", "四"])
 		#GObject.threads_init()
 
 		self.config = Config()
@@ -84,14 +84,28 @@ class DockWindow(Gtk.Window):
 		self.wLeft = left
 		self.wRight = right
 		self.wCentr = centr
+
+
 		for w in left:
-			self.layoutLeft.pack_start(w, expand=False, fill=False, padding=0)
-			
+			if w.type == "DESK":
+				for ww in w.desktops:
+					self.layoutLeft.pack_start(ww, expand=False, fill=False, padding=0)
+			else:
+				self.layoutLeft.pack_start(w, expand=False, fill=False, padding=0)
+
 		for w in right:
-			self.layoutRight.pack_start(w, expand=False, fill=False, padding=0)
+			if w.type == "DESK":
+				for ww in w.desktops:
+					self.layoutRight.pack_start(ww, expand=False, fill=False, padding=0)
+			else:
+				self.layoutRight.pack_start(w, expand=False, fill=False, padding=0)
 			
 		for w in centr:
-			self.layoutCentr.pack_start(w, expand=False, fill=False, padding=0)
+			if w.type == "DESK":
+				for ww in w.desktops:
+					self.layoutCentr.pack_start(ww, expand=False, fill=False, padding=0)
+			else:
+				self.layoutCentr.pack_start(w, expand=False, fill=False, padding=0)
 		
 		t = threading.Thread(target=self.Update)
 		t.start()
@@ -131,9 +145,9 @@ class DockWindow(Gtk.Window):
 		cr.paint()
 		cr.set_operator(cairo.OPERATOR_OVER)
 
-
 	def Update(self):
 		#while True:
+
 			for w in left:
 				GObject.timeout_add(50, w.Update)
 				#w.Update()
@@ -145,8 +159,6 @@ class DockWindow(Gtk.Window):
 				#w.Update()
 			#GObject.timeout_add(200, None)
 			#GObject.threads_init()
-		
-
 
 	def on_button_clicked(self, widget):
 		print("Hello World")
