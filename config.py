@@ -28,7 +28,7 @@ class Config:
 	
 	BG_COLOR = "#4B3B51"
 	
-	SIZE_Y = 16  # in pixel
+	SIZE_Y = 18  # in pixel
 	SIZE_X = 100 # in percent
 
 	ALIGNMENT = Alignment.CENTR
@@ -67,18 +67,18 @@ centr = [
 	#Text(text="3 label")
 ]
 right = [
-	Image(bgColor="#ffffff", 
+	Image(bgColor="#4B3B51", 
 		path="/home/daniil/unknowdock/widgets/icons/arr5.png"),
 	Image(bgColor="#CB755B", 
 		path="/home/daniil/unknowdock/widgets/icons/cpu.png"),
 	CpuUsage(fmt='%s %% ', percpu=True, bgColor="#D0785D", fgColor="#ffffff"), 
-	Image(path="/home/daniil/unknowdock/widgets/icons/arr4.png"),
-	VolumeImage(), 
+	Image(bgColor="#D0785D",path="/home/daniil/unknowdock/widgets/icons/arr4.png"),
+	VolumeImage(bgColor="#92B0A0"), 
 	Volume(bgColor="#92B0A0", fgColor="#ffffff"),
 	Text(text=" % ", bgColor="#92B0A0", fgColor="#ffffff"),
-	Image(path="/home/daniil/unknowdock/widgets/icons/arr3.png"),
-	WeatherLabel(bgColor="#C0C0A2", fgColor="#ffffff"),
-	Image(path="/home/daniil/unknowdock/widgets/icons/arr2.png"),
-	DateTime(fmt="%Y-%m-%d %H:%M:%S", bgColor="#777E76", fgColor="#ffffff"), 
+	Image(bgColor="#92B0A0", path="/home/daniil/unknowdock/widgets/icons/arr3.png"),
+	#WeatherLabel(bgColor="#C0C0A2", fgColor="#ffffff"),
+	#Image(path="/home/daniil/unknowdock/widgets/icons/arr2.png"),
+	DateTime(fmt="%Y-%m-%d %H:%M:%S", bgColor="#C0C0A2", fgColor="#ffffff"), 
 	Text(bgColor="#777E76", fgColor="#ffffff", text=" "),
 ]
