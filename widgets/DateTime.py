@@ -14,7 +14,7 @@ import datetime
 import psutil
 
 
-from weather import Weather, Unit
+#from weather import Weather, Unit
 gi.require_version('Notify', '0.7')
 from gi.repository import Notify
 

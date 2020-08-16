@@ -14,7 +14,6 @@ import datetime
 import psutil
 
 
-from weather import Weather, Unit
 gi.require_version('Notify', '0.7')
 from gi.repository import Notify
 
@@ -28,7 +27,7 @@ import traceback
 
 
 class Mode(Label):
-	def __init__(self, pwmi="", pdi="", bgColor='#ffffff', fgColor='#000000', 
+	def __init__(self, bgColor='#ffffff', fgColor='#000000', 
 		delay=1, fontSize=10, font="", decoratePos="DOWN", decoreateImg="", text=""):
 		super().__init__(bgColor, fgColor,
 			fontSize=fontSize, font=font, decoratePos=decoratePos, decoreateImg=decoreateImg)
@@ -43,8 +42,6 @@ class Mode(Label):
 		self.id = 0
 		self.json = ""
 
-		self.pwmi = pwmi
-		self.pdi = pdi
 		th = threading.Thread(target=self.UpdateThread)
 		th.daemon = True
 		th.start()
@@ -88,11 +85,7 @@ class Mode(Label):
 
 
 	def Update(self):
-		if self.pwmi == "":
-				return
-		with open(self.pwmi, 'r') as f:
-			data = f.read()
-			self.json = data
+		
 
 		if self.txt != self.newTxt:
 			self.txt = self.newTxt
@@ -102,13 +95,7 @@ class Mode(Label):
 	def __onClick(self, widget, event = None):
 		if event.button == 1:
 			print("l")
-			if self.pdi == "":
-				return
-			f = open(self.pdi, "w")
-			self.id += 1
-			if self.id > 7:
-				self.id = 0
-			f.write("mode:"+str(self.id))
+			
 		elif event.button == 2:
 			print("m")
 		elif event.button == 3:
@@ -122,7 +109,7 @@ class Mode(Label):
 			pass
 
 class Desktop(Label):
-	def __init__(self, pwmi="", pdi="", bgColor='#ffffff', fgColor='#000000', 
+	def __init__(self, bgColor='#ffffff', fgColor='#000000', 
 		bgColorActive='#000000', fgColorActive='#ffffff',
 		delay=1, fontSize=10, font="", decoratePos="DOWN", decoreateImg="", text="", id=0):
 		super().__init__(bgColor, fgColor,
@@ -136,9 +123,6 @@ class Desktop(Label):
 		self.newTxt = text
 		self.id = id
 		self.json = ""
-
-		self.pwmi = pwmi
-		self.pdi = pdi
 
 		self.bgColorActive = bgColorActive
 		self.fgColorActive = fgColorActive
@@ -192,10 +176,6 @@ class Desktop(Label):
 	def __onClick(self, widget, event = None):
 		if event.button == 1:
 			print("l")
-			if self.pdi == "":
-				return
-			f = open(self.pdi, "w")
-			f.write("desktop:"+str(self.id))
 		elif event.button == 2:
 			print("m")
 		elif event.button == 3:
@@ -209,21 +189,19 @@ class Desktop(Label):
 			pass
 
 class Desktops:
-	def __init__(self, pwmi="", pdi="", deskSize=4,
+	def __init__(self, deskSize=4,
 		bgColor='#ffffff', fgColor='#000000', 
 		bgColorActive='#000000', fgColorActive='#ffffff',
 		delay=1, fontSize=10, font="", decoratePos="DOWN", decoreateImg="", text=[]):
 		self.desktops = []
 		self.type = "DESK"
-		self.pwmi = pwmi
-		self.pdi = pdi
 
 		if text == []:
 			for i in range(deskSize):
 				text.append(str(i))
 
 		for d in range(deskSize):
-			self.desktops.append(Desktop(pwmi, pdi, bgColor, fgColor, 
+			self.desktops.append(Desktop(bgColor, fgColor, 
 				bgColorActive, fgColorActive, delay, fontSize, font, decoratePos, decoreateImg, text[d], d))
 		
 		self.delay = delay
@@ -234,13 +212,7 @@ class Desktops:
 
 	def UpdateThread(self):
 		while True:
-			if self.pwmi == "":
-				return
-			with open(self.pwmi, 'r') as f:
-				data = f.read()
-				#print(data)
-				for d in self.desktops:
-					d.json = data
+			
 			time.sleep(self.delay)
 
 	def Update(self):

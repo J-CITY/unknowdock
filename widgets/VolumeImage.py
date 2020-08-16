@@ -15,7 +15,6 @@ import datetime
 import psutil
 import subprocess
 
-from weather import Weather, Unit
 gi.require_version('Notify', '0.7')
 from gi.repository import Notify
 

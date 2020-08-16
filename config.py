@@ -26,14 +26,14 @@ class Config:
 	GAP_X = 10
 	GAP_Y = 3
 	
-	BG_COLOR = "#4B3B51"
+	BG_COLOR = "#260b59"
 	
 	SIZE_Y = 16  # in pixel
 	SIZE_X = 100 # in percent
 
 	ALIGNMENT = Alignment.CENTR
 
-	BORDER_COLOR = "#4B3B51"
+	BORDER_COLOR = "#260b59"
 	BORDER_WIDTH = 0
 
 	TRANSPARENCY = False
@@ -48,16 +48,14 @@ COLOR_06="#85678F"           # magenta
 COLOR_07="#5E8D87"           # cayn
 COLOR_08="#969896"           # white
 
-PIPE_WM_INFO = "/home/daniil/wminfo"
-PIPE_DOCK_INFO = "/home/daniil/dockinfo"
 
 left = [
-	Desktops(pwmi=PIPE_WM_INFO, pdi=PIPE_DOCK_INFO, text=["一", "二", "三", "四"],
-		bgColor='#4B3B51', fgColor='#ffffff', 
-		bgColorActive='#4B3B51', fgColorActive='#D0785D'),
-	Text(bgColor="#4B3B51", fgColor="#ffffff", text=" User: "),
-	UserName(bgColor="#4B3B51", fgColor="#ffffff"), 
-	Mode(pwmi=PIPE_WM_INFO, pdi=PIPE_DOCK_INFO, bgColor="#4B3B51", fgColor="#ffffff"),
+	Desktops(text=["一", "二", "三", "四"],
+		bgColor='#260b59', fgColor='#e90cb2', 
+		bgColorActive='#b70b41', fgColorActive='#505050'),
+	#Text(bgColor="#4B3B51", fgColor="#ffffff", text=" | "),
+	#UserName(bgColor="#4B3B51", fgColor="#ffffff"), 
+	#Mode(bgColor="#4B3B51", fgColor="#ffffff"),
 	#ProgressBar()
 	#Text(bgColor=COLOR_01, fgColor=COLOR_02, text=" | "),
 	#Text(text="2 label")
@@ -67,18 +65,22 @@ centr = [
 	#Text(text="3 label")
 ]
 right = [
-	Image(bgColor="#ffffff", 
-		path="/home/daniil/unknowdock/widgets/icons/arr5.png"),
-	Image(bgColor="#CB755B", 
-		path="/home/daniil/unknowdock/widgets/icons/cpu.png"),
-	CpuUsage(fmt='%s %% ', percpu=True, bgColor="#D0785D", fgColor="#ffffff"), 
-	Image(path="/home/daniil/unknowdock/widgets/icons/arr4.png"),
-	VolumeImage(), 
-	Volume(bgColor="#92B0A0", fgColor="#ffffff"),
-	Text(text=" % ", bgColor="#92B0A0", fgColor="#ffffff"),
-	Image(path="/home/daniil/unknowdock/widgets/icons/arr3.png"),
-	WeatherLabel(bgColor="#C0C0A2", fgColor="#ffffff"),
-	Image(path="/home/daniil/unknowdock/widgets/icons/arr2.png"),
-	DateTime(fmt="%Y-%m-%d %H:%M:%S", bgColor="#777E76", fgColor="#ffffff"), 
-	Text(bgColor="#777E76", fgColor="#ffffff", text=" "),
+	#Image(bgColor="#ffffff", 
+	#	path="/home/daniil/unknowdock/widgets/icons/arr5.png"),
+	#Image(bgColor="#CB755B", 
+	#	path="/home/daniil/unknowdock/widgets/icons/cpu.png"),
+	Text(bgColor="#260b59", fgColor="#e90cb2", text=" CPU: "),
+	CpuUsage(fmt='%s %% ', percpu=True, bgColor="#260b59", fgColor="#e90cb2"), 
+	#Image(path="/home/daniil/unknowdock/widgets/icons/arr4.png"),
+	#VolumeImage(), 
+	Text(bgColor="#260b59", fgColor="#b70b41", text=" | "),
+	#Volume(bgColor="#92B0A0", fgColor="#ffffff"),
+	#Text(text=" % ", bgColor="#92B0A0", fgColor="#ffffff"),
+	#Image(path="/home/daniil/unknowdock/widgets/icons/arr3.png"),
+	#Text(bgColor="#4B3B51", fgColor="#ffffff", text=" | "),
+	#WeatherLabel(bgColor="#C0C0A2", fgColor="#ffffff"),
+	#Text(bgColor="#4B3B51", fgColor="#ffffff", text=" | "),
+	#Image(path="/home/daniil/unknowdock/widgets/icons/arr2.png"),
+	DateTime(fmt="%Y-%m-%d %H:%M:%S", bgColor="#260b59", fgColor="#e90cb2"), 
+	Text(bgColor="#260b59", fgColor="#ffffff", text=" "),
 ]
