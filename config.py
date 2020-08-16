@@ -28,7 +28,7 @@ class Config:
 	
 	BG_COLOR = "#260b59"
 	
-	SIZE_Y = 16  # in pixel
+	SIZE_Y = 18  # in pixel
 	SIZE_X = 100 # in percent
 
 	ALIGNMENT = Alignment.CENTR

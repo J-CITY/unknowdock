@@ -23,8 +23,8 @@ import time
 import threading
 
 class VolumeImage(Image):
-	def __init__(self, delay=1):
-		super().__init__("/home/daniil/unknowdock/widgets/icons/vol.png")
+	def __init__(self, bgColor="#ffffff", delay=1):
+		super().__init__(bgColor=bgColor, path="/home/daniil/unknowdock/widgets/icons/vol.png")
 		self.set_events(Gdk.EventMask.SCROLL_MASK|Gdk.EventMask.BUTTON_PRESS_MASK)
 		self.connect('button-press-event', self.__onClick)
 		self.connect('scroll-event', self.__onScroll)
@@ -38,7 +38,7 @@ class VolumeImage(Image):
 	def UpdateThread(self):
 		while True:
 			cmd = "pactl list sinks \
-				| grep '^[[:space:]]Громкость:' | head -n $(( $SINK + 1 )) \
+				| grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) \
 				| tail -n 1 | sed -e 's,.* \\([0-9][0-9]*\\)%.*,\\1,'"
 			process = subprocess.run(cmd, stdout=subprocess.PIPE, shell=True)
 			output = int(process.stdout.strip().decode('ascii'))
