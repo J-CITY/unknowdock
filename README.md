@@ -7,7 +7,7 @@ This is tiny status bar written in Python with the GTK library.
 ![Screenshot](https://github.com/J-CITY/unknowdock/blob/master/screens/0.png)
 
 # Description
-Unknown Dock is a simple status bar for [UnknownWM](https://github.com/J-CITY/unknowwm).
+Unknow Dock is a simple status bar for [UnknowWM](https://github.com/J-CITY/unknowwm).
 
 # Installation
 
